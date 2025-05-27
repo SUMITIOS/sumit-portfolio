@@ -1,0 +1,70 @@
+.contact {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.content {
+  display: flex;
+  gap: 2rem;
+}
+.info {
+  flex: 1;
+}
+.contactList {
+  list-style-type: none;
+  padding: 0;
+}
+.contactList li {
+  margin-bottom: 0.5rem;
+}
+.contactList a {
+  color: #3498db;
+  text-decoration: none;
+}
+.contactList a:hover {
+  text-decoration: underline;
+}
+.form {
+  flex: 1;
+}
+.formGroup {
+  margin-bottom: 1rem;
+}
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+}
+.formGroup textarea {
+  height: 150px;
+}
+.submitButton {
+  background-color: #3498db;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.submitButton:hover {
+  background-color: #2980b9;
+}
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+}
