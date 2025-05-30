@@ -1,0 +1,37 @@
+.resumeButton {
+  display: inline-block;
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  animation: pulse 2s infinite;
+  /* For larger screens, let it be normally placed */
+}
+
+/* Standard hover effect on larger screens */
+.resumeButton:hover {
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .resumeButton {
+    position: fixed;
+    top: 20px; /* Place it at the top (or adjust as desired) */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
