@@ -4,26 +4,20 @@ import styles from './Education.module.css';
 const educationData = [
   {
     id: 1,
-    degree: "Bachelor of Technology in Computer Science",
-    institution: "Sikkim Manipal Institute of Technology",
-    location: "Sikkim, India",
-    duration: "2011 - 2015",
+    degree: "Bachelor of Technology in Electrical Engineering",
+    institution: "Seacom Engineering College",
+    location: "Kolkata, India",
+    duration: "2013 - 2017",
     achievements: [
-      "Graduated with First Class Honours",
-      "Participated in multiple hackathons and coding competitions",
-      "Completed a capstone project on mobile app development"
     ]
   },
   {
     id: 2,
     degree: "Higher Secondary Education",
-    institution: "Kendriya Vidyalaya",
+    institution: "Shree Jain Vidyalaya",
     location: "Kolkata, India",
-    duration: "2009 - 2011",
+    duration: "20011 - 2013",
     achievements: [
-      "Achieved 85% in Science stream",
-      "Active member of the school's computer club",
-      "Participated in inter-school science exhibitions"
     ]
   }
 ];

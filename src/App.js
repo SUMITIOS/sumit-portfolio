@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import Courses from './components/Courses';
 
 function App() {
+  console.log('App component rendered');
   return (
     <Router>
       <div className="App">
