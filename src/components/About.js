@@ -5,7 +5,7 @@ import profileImage from '../assets/PassPhotoColor.jpg';
 const About = () => {
   return (
     <section className={styles.about}><h2 className={styles.title}>About Me</h2><div className={styles.content}><div className={styles.imageContainer}><img src={profileImage} alt="Sumit Pandey" className={styles.profileImage} /></div><div className={styles.text}><p>
-            Hello! I'm Sumit Pandey, a proactive Senior Software Engineer specializing in React Native and React JS. 
+            Hey There! I'm Sumit Pandey, a proactive Senior Software Engineer specializing in React Native and React JS. 
             With a B.Tech. degree and 8 years of experience, I excel in iOS and Android application development using 
             Xcode, Android Studio, and React Native CLI.
           </p><p>
