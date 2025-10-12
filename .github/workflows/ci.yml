@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -40,10 +40,21 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Upload build for GitHub Pages
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./build
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+      - name: Copy build to docs and push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -rf docs || true
+          mkdir -p docs
+          cp -r build/. docs/
+          # Only commit if there are changes
+          git add docs
+          if git diff --cached --quiet; then
+            echo "No changes to docs; skipping commit"
+          else
+            git commit -m "chore(docs): update GitHub Pages build [skip ci]"
+            git push origin HEAD:main
+          fi
