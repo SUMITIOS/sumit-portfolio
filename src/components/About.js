@@ -11,7 +11,7 @@ const About = () => {
           </p><p>
             I'm proficient in React, TypeScript, HTML5, and SCSS, and I effectively communicate with clients and team members. 
             My portfolio includes over 15 projects, with half of them live on app stores. I've contributed to various industries 
-            including eCommerce, social media, tourism, delivery, and news.
+            including eCommerce, social media, tourism, delivery, and news etc.
           </p><p>
             My expertise lies in delivering high-quality solutions, and I'm always eager to leverage my skills in challenging environments. 
             I'm passionate about creating efficient, user-friendly applications that make a real difference.
