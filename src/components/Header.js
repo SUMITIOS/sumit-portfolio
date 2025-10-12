@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import ResumeButton from './ResumeButton';
+import GoogleTranslate from './GoogleTranslate';
 
 const Header = () => {
   const [showHeader, setShowHeader] = useState(true);
@@ -27,8 +28,9 @@ const Header = () => {
   return (
     <header className={`${styles.header} ${!showHeader ? styles.hidden : ''}`}>
       <nav className={styles.nav}>
-        <div className={styles.logo}>Sumit Pandey</div>
-        <ResumeButton />
+  <div className={styles.logo}>Sumit Pandey</div>
+  <ResumeButton />
+  <GoogleTranslate />
         <div className={styles.navLinks}>
           <Link to="/" className={styles.navLink}>Home</Link>
           <Link to="/projects" className={styles.navLink}>Projects</Link>
