@@ -7,9 +7,11 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Courses from './components/Courses';
+console.log('App component rendered');
+
 
 function App() {
-  console.log('App component rendered');
+
   return (
     <Router>
       <div className="App">
