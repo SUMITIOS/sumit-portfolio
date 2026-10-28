@@ -5,7 +5,7 @@ const experiences = [
   {
     id: 1,
     company: "Capgemini",
-    position: "Consultant B2",
+    position: "Consultant B2 -> Senior Consultant C1",
     duration: "Feb 2022 - Present",
     location: "Bangalore, India",
     responsibilities: [

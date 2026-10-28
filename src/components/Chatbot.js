@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Chatbot.module.css';
 import ResumeButton from './ResumeButton';
+import PageReader from './PageReader';
 
 const CHAT_API_URL = `https://mysimplechat.smile-sumit-pandey.workers.dev/api/chat` //process.env.REACT_APP_CHAT_API_URL;
 
@@ -113,6 +114,7 @@ const Chatbot = () => {
       )}
 
       <div className={styles.floatingActions}>
+        <PageReader />
         <ResumeButton />
         <button
           type="button"

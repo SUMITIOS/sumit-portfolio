@@ -1,0 +1,113 @@
+.readerToolbar {
+  display: flex;
+  justify-content: center;
+}
+
+.readerControls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.readerButton,
+.stopButton {
+  display: inline-flex;
+  position: relative;
+  width: 3.25rem;
+  height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(44, 62, 80, 0.15);
+  transition: background-color 0.16s ease, transform 0.16s ease;
+}
+
+.readerButton {
+  background: #8e44ad;
+}
+
+.stopButton {
+  background: #566573;
+}
+
+.readerButton svg,
+.stopButton svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.readerButton span,
+.stopButton span {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 0.65rem);
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.5rem;
+  background: #243746;
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(44, 62, 80, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0.25rem, -50%);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.readerButton:hover span,
+.readerButton:focus-visible span,
+.stopButton:hover span,
+.stopButton:focus-visible span {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.readerButton:hover:not(:disabled) {
+  background: #7d3c98;
+}
+
+.stopButton:hover {
+  background: #3f4d5a;
+}
+
+.readerButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.readerButton:focus-visible,
+.stopButton:focus-visible {
+  outline: 3px solid #d7bde2;
+  outline-offset: 2px;
+}
+
+.readingBlock {
+  border-radius: 0.2rem;
+  background: #fff2a8 !important;
+  box-shadow: 0 0 0 0.2rem #fff2a8;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (max-width: 480px) {
+  .readerButton,
+  .stopButton {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .readerButton span,
+  .stopButton span {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
