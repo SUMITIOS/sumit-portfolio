@@ -7,6 +7,7 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Courses from './components/Courses';
+import Chatbot from './components/Chatbot';
 console.log('App component rendered');
 
 
@@ -29,6 +30,7 @@ function App() {
           {/* Redirect unknown routes to home */}
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
+        <Chatbot />
         <footer>
           <p>© {new Date().getFullYear()} Sumit Pandey. All rights reserved.</p>
         </footer>

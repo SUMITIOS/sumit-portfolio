@@ -2,13 +2,6 @@ import React, { useEffect } from 'react';
 
 const GoogleTranslate = () => {
   useEffect(() => {
-    // Avoid injecting multiple times
-    if (document.getElementById('google-translate-script')) return;
-
-    const script = document.createElement('script');
-    script.id = 'google-translate-script';
-    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-    script.async = true;
     window.googleTranslateElementInit = function () {
       /* global google */
       try {
@@ -21,6 +14,14 @@ const GoogleTranslate = () => {
       }
     };
 
+    // Restore the callback before checking for an existing script. React StrictMode
+    // runs effect cleanup and setup again in development.
+    if (document.getElementById('google-translate-script')) return;
+
+    const script = document.createElement('script');
+    script.id = 'google-translate-script';
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.async = true;
     document.body.appendChild(script);
 
     return () => {

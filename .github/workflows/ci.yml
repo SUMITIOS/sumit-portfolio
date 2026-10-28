@@ -38,6 +38,8 @@ jobs:
         run: npm test -- --watchAll=false
 
       - name: Build
+        env:
+          REACT_APP_CHAT_API_URL: ${{ vars.REACT_APP_CHAT_API_URL }}
         run: npm run build
 
       - name: Copy build to docs and push
