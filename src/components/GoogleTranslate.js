@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 const GoogleTranslate = () => {
   useEffect(() => {
     window.googleTranslateElementInit = function () {
-      /* global google */
       try {
         new window.google.translate.TranslateElement(
           { pageLanguage: 'en', layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE },

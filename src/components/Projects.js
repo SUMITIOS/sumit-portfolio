@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './Projects.module.css';
-import profileImage from '../assets/PassPhotoColor.jpg'; // Adjust the path as necessary
 
 const projectsData = [
   {
