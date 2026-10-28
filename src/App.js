@@ -8,6 +8,7 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 import Courses from './components/Courses';
 import Chatbot from './components/Chatbot';
+import GoogleTranslate from './components/GoogleTranslate';
 console.log('App component rendered');
 
 
@@ -17,6 +18,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
+        <GoogleTranslate />
         <Routes>
           {/* Default home route */}
           <Route path="/" element={<Home />} />

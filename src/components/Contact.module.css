@@ -43,7 +43,10 @@
 }
 .formGroup input,
 .formGroup textarea {
+  box-sizing: border-box;
+  display: block;
   width: 100%;
+  max-width: 100%;
   padding: 0.5rem;
   border: 1px solid #bdc3c7;
   border-radius: 4px;

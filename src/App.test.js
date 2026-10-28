@@ -4,4 +4,5 @@ import App from './App';
 test('renders the chat button', () => {
   render(<App />);
   expect(screen.getByRole('button', { name: /open chat/i })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: /download resume/i })).toBeInTheDocument();
 });

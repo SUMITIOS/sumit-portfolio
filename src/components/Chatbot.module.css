@@ -9,6 +9,14 @@
   gap: 0.75rem;
 }
 
+.floatingActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
 .panel {
   display: flex;
   flex-direction: column;
@@ -139,8 +147,45 @@
 }
 
 .toggleButton {
-  padding: 0.8rem 1.1rem;
+  position: relative;
+  display: inline-flex;
+  width: 3.25rem;
+  height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 50%;
   box-shadow: 0 4px 12px rgba(44, 62, 80, 0.2);
+}
+
+.toggleButton svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.toggleLabel {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 0.65rem);
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.5rem;
+  background: #243746;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(44, 62, 80, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0.25rem, -50%);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.toggleButton:hover .toggleLabel,
+.toggleButton:focus-visible .toggleLabel {
+  opacity: 1;
+  transform: translate(0, -50%);
 }
 
 .toggleButton:hover,
@@ -159,5 +204,17 @@
   .chatbot {
     right: 1rem;
     bottom: 1rem;
+  }
+
+  .toggleButton {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .toggleLabel {
+    opacity: 1;
+    transform: translate(0, -50%);
   }
 }

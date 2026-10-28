@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import styles from './GoogleTranslate.module.css';
 
 const GoogleTranslate = () => {
   useEffect(() => {
@@ -31,7 +32,11 @@ const GoogleTranslate = () => {
     };
   }, []);
 
-  return <div id="google_translate_element" style={{ display: 'inline-block' }} />;
+  return (
+    <div className={styles.translateWidget}>
+      <div id="google_translate_element" />
+    </div>
+  );
 };
 
 export default GoogleTranslate;

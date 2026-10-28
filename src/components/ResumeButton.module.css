@@ -1,37 +1,70 @@
 .resumeButton {
-  display: inline-block;
-  background-color: #2ecc71;
+  position: relative;
+  display: inline-flex;
+  width: 3.25rem;
+  height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #27ae60;
   color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border-radius: 50%;
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: transform 0.3s ease;
-  animation: pulse 2s infinite;
-  /* For larger screens, let it be normally placed */
+  font: inherit;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* Standard hover effect on larger screens */
+.resumeButton svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.resumeLabel {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 0.65rem);
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.5rem;
+  background: #243746;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(44, 62, 80, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0.25rem, -50%);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.resumeButton:hover .resumeLabel,
+.resumeButton:focus-visible .resumeLabel {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
 .resumeButton:hover {
-  transform: scale(1.05);
+  background-color: #219150;
+  transform: translateY(-1px);
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+.resumeButton:focus-visible {
+  outline: 3px solid #a9dfbf;
+  outline-offset: 2px;
 }
 
-/* Mobile-specific adjustments */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .resumeButton {
-    position: fixed;
-    top: 20px; /* Place it at the top (or adjust as desired) */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    padding: 0.75rem 1.25rem;
-    font-size: 0.9rem;
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .resumeLabel {
+    opacity: 1;
+    transform: translate(0, -50%);
   }
 }
