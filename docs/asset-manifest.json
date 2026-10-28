@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/sumit-portfolio/static/css/main.036cd82b.css",
-    "main.js": "/sumit-portfolio/static/js/main.48357588.js",
+    "main.css": "/sumit-portfolio/static/css/main.f48cd3f5.css",
+    "main.js": "/sumit-portfolio/static/js/main.f1f8a144.js",
     "static/media/PassPhotoColor.jpg": "/sumit-portfolio/static/media/PassPhotoColor.46188da0c4ad7d716882.jpg",
     "index.html": "/sumit-portfolio/index.html",
-    "main.036cd82b.css.map": "/sumit-portfolio/static/css/main.036cd82b.css.map",
-    "main.48357588.js.map": "/sumit-portfolio/static/js/main.48357588.js.map"
+    "main.f48cd3f5.css.map": "/sumit-portfolio/static/css/main.f48cd3f5.css.map",
+    "main.f1f8a144.js.map": "/sumit-portfolio/static/js/main.f1f8a144.js.map"
   },
   "entrypoints": [
-    "static/css/main.036cd82b.css",
-    "static/js/main.48357588.js"
+    "static/css/main.f48cd3f5.css",
+    "static/js/main.f1f8a144.js"
   ]
 }
