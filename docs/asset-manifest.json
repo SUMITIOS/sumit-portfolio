@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/sumit-portfolio/static/css/main.11e5d88b.css",
-    "main.js": "/sumit-portfolio/static/js/main.4ca78162.js",
+    "main.css": "/sumit-portfolio/static/css/main.138f0186.css",
+    "main.js": "/sumit-portfolio/static/js/main.9bfcb0f4.js",
     "static/media/NAUKRI_SUMIT_PANDEY_1746186297946_Sumit Pandey.pdf": "/sumit-portfolio/static/media/NAUKRI_SUMIT_PANDEY_1746186297946_Sumit Pandey.1516a46c4313dd330afb.pdf",
     "static/media/PassPhotoColor.jpg": "/sumit-portfolio/static/media/PassPhotoColor.46188da0c4ad7d716882.jpg",
     "index.html": "/sumit-portfolio/index.html",
-    "main.11e5d88b.css.map": "/sumit-portfolio/static/css/main.11e5d88b.css.map",
-    "main.4ca78162.js.map": "/sumit-portfolio/static/js/main.4ca78162.js.map"
+    "main.138f0186.css.map": "/sumit-portfolio/static/css/main.138f0186.css.map",
+    "main.9bfcb0f4.js.map": "/sumit-portfolio/static/js/main.9bfcb0f4.js.map"
   },
   "entrypoints": [
-    "static/css/main.11e5d88b.css",
-    "static/js/main.4ca78162.js"
+    "static/css/main.138f0186.css",
+    "static/js/main.9bfcb0f4.js"
   ]
 }
