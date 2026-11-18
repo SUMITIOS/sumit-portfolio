@@ -2,6 +2,62 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Dynamic contact details
+
+The contact section loads its email, phone, location, and LinkedIn URL from
+`GET /api/contact` on the Cloudflare Worker. The endpoint reads one row from a
+Cloudflare D1 database, so updating that row changes the website without a
+frontend rebuild.
+
+1. In Cloudflare, create a D1 database (for example, `portfolio-contact`).
+2. Open the database's console and run:
+
+   ```sql
+   CREATE TABLE contact_info (
+     id INTEGER PRIMARY KEY CHECK (id = 1),
+     email TEXT NOT NULL,
+     phone TEXT NOT NULL,
+     location TEXT NOT NULL,
+     linkedin TEXT NOT NULL
+   );
+
+   INSERT INTO contact_info (id, email, phone, location, linkedin)
+   VALUES (
+     1,
+     'your-email@example.com',
+     '+91 0000000000',
+     'Your location',
+     'https://www.linkedin.com/in/your-profile/'
+   );
+   ```
+
+3. In **Workers & Pages → your chat Worker → Settings → Bindings**, add a D1
+   database binding named `DB` and select the database. Deploy the updated
+   [`cloudflare-chat-worker.js`](./cloudflare-chat-worker.js) Worker code.
+4. Set the Worker `ALLOWED_ORIGINS` text variable to the origins that serve the
+   site, comma-separated (for example,
+   `https://sumitios.github.io,http://localhost:3000`). Include any custom
+   domain origin if the portfolio uses one.
+5. The frontend defaults to the existing Worker URL. If the Worker uses another
+   URL, set the GitHub Actions repository variable `REACT_APP_CONTACT_API_URL`
+   to its full `/api/contact` endpoint. For local development, set the same
+   variable before starting the app:
+
+   ```sh
+   REACT_APP_CONTACT_API_URL=https://your-worker.your-subdomain.workers.dev/api/contact yarn start
+   ```
+
+To update the displayed details later, edit the row in the D1 console:
+
+```sql
+UPDATE contact_info
+SET email = 'new-email@example.com',
+    phone = '+91 0000000000',
+    location = 'New location',
+    linkedin = 'https://www.linkedin.com/in/your-profile/'
+WHERE id = 1;
+```
+
 ## Chatbot
 
 The chatbot uses a free Cloudflare Worker as a small server-side proxy, keeping

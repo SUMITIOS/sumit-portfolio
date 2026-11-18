@@ -1,17 +1,58 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Contact.module.css';
 
+const CONTACT_API_URL =
+  process.env.REACT_APP_CONTACT_API_URL ||
+  'https://mysimplechat.smile-sumit-pandey.workers.dev/api/contact';
+
 const Contact = () => {
-  // Optional: local state for controlled inputs if you want to display them
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
+  const [contact, setContact] = useState(null);
+  const [contactError, setContactError] = useState('');
+
+  useEffect(() => {
+    let isCurrent = true;
+
+    const loadContact = async () => {
+      try {
+        const response = await fetch(CONTACT_API_URL);
+        if (!response.ok) {
+          throw new Error(`Contact service returned ${response.status}.`);
+        }
+
+        const result = await response.json();
+        if (
+          !result ||
+          ['email', 'phone', 'location', 'linkedin'].some(
+            (field) => typeof result[field] !== 'string'
+          )
+        ) {
+          throw new Error('Contact service returned invalid information.');
+        }
+
+        if (isCurrent) setContact(result);
+      } catch (requestError) {
+        if (isCurrent) {
+          setContactError(requestError.message || 'Could not load contact information.');
+        }
+      }
+    };
+
+    loadContact();
+    return () => {
+      isCurrent = false;
+    };
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const phoneLink = contact?.phone.replace(/[^\d+]/g, '');
 
   return (
     <section className={styles.contact}>
@@ -19,26 +60,33 @@ const Contact = () => {
       <div className={styles.content}>
         <div className={styles.info}>
           <p>Feel free to reach out to me for any inquiries or opportunities:</p>
-          <ul className={styles.contactList}>
-            <li>Email: smile.sumit.pandey@gmail.com</li>
-            <li>Phone: (+91) 8583882934</li>
-            <li>Location: Kolkata, Bangalore, India</li>
-            <li>
-              LinkedIn:{" "}
-              <a
-                href="https://www.linkedin.com/in/sumit-pandey-0a17b816b/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sumit Pandey
-              </a>
-            </li>
-          </ul>
+          {contact ? (
+            <ul className={styles.contactList}>
+              <li>
+                Email: <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              </li>
+              <li>
+                Phone: <a href={`tel:${phoneLink}`}>{contact.phone}</a>
+              </li>
+              <li>Location: {contact.location}</li>
+              <li>
+                LinkedIn:{' '}
+                <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
+                  Sumit Pandey
+                </a>
+              </li>
+            </ul>
+          ) : (
+            <p role={contactError ? 'alert' : 'status'}>
+              {contactError
+                ? `Could not load contact information: ${contactError}`
+                : 'Loading contact information...'}
+            </p>
+          )}
         </div>
-        {/* Use Formspree's endpoint here */}
         <form
           className={styles.form}
-          action="https://formspree.io/f/mzzgpjjz"  // Replace with your actual Formspree endpoint
+          action="https://formspree.io/f/mzzgpjjz"
           method="POST"
         >
           <div className={styles.formGroup}>

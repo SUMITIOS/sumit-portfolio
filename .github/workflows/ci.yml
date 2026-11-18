@@ -40,6 +40,7 @@ jobs:
       - name: Build
         env:
           REACT_APP_CHAT_API_URL: ${{ vars.REACT_APP_CHAT_API_URL }}
+          REACT_APP_CONTACT_API_URL: ${{ vars.REACT_APP_CONTACT_API_URL }}
         run: yarn build
 
       - name: Copy build to docs and push

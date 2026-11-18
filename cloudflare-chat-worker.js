@@ -29,12 +29,33 @@ export default {
         status: 204,
         headers: {
           'Access-Control-Allow-Origin': origin,
-          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+          'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
           'Access-Control-Allow-Headers': 'Content-Type',
           'Access-Control-Max-Age': '86400',
           Vary: 'Origin',
         },
       });
+    }
+
+    if (request.method === 'GET' && new URL(request.url).pathname === '/api/contact') {
+      if (!env.DB) {
+        return jsonResponse({ error: 'Contact service is not configured.' }, 500, origin);
+      }
+
+      try {
+        const contact = await env.DB.prepare(
+          'SELECT email, phone, location, linkedin FROM contact_info WHERE id = 1'
+        ).first();
+
+        if (!contact) {
+          return jsonResponse({ error: 'Contact information has not been configured.' }, 404, origin);
+        }
+
+        return jsonResponse(contact, 200, origin);
+      } catch (error) {
+        console.error('Could not load contact information:', error);
+        return jsonResponse({ error: 'Could not load contact information.' }, 500, origin);
+      }
     }
 
     if (request.method !== 'POST' || new URL(request.url).pathname !== '/api/chat') {
